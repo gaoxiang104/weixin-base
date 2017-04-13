@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<weixinConfig>
+	<!-- 公众平台_账号appid -->
+	<GZ_APPID>wxde5937b7f8acd726</GZ_APPID>
+	<!-- 公众平台_app_secret -->
+	<GZ_APPSECRET>d4624c36b6795d1d99dcf0547af5443d</GZ_APPSECRET>
+	<!-- 公众平台_URL_获取TOKEN -->
+	<GZ_URL_GET_ACCESS_TOKEN>https://api.weixin.qq.com/cgi-bin/token</GZ_URL_GET_ACCESS_TOKEN>
+	<!-- 公众平台_URL_获取JS_SDK API ticket -->
+	<GZ_URL_GET_JSAPI_TICKET>https://api.weixin.qq.com/cgi-bin/ticket/getticket</GZ_URL_GET_JSAPI_TICKET>
+</weixinConfig>
+
+
+

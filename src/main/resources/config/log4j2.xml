@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyMMddHHmmss} %level{length=1} %msg%n" />
+		</Console>
+		<RollingFile name="weixin_c"
+			fileName="${sys:catalina.home}/logs/weixin-base/c.log"
+			filePattern="${sys:catalina.home}/logs/weixin-base/$${date:yyMMdd}/c_%d{HHmmss}.log">
+			<PatternLayout>
+				<Pattern>%d{yyMMdd_HHmmss} %level{length=3} %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="1 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="weixin_s"
+			fileName="${sys:catalina.home}/logs/weixin-base/s.log"
+			filePattern="${sys:catalina.home}/logs/weixin-base/$${date:yyMMdd}/s_%d{HHmmss}.log">
+			<PatternLayout>
+				<Pattern>%d{yyMMdd_HHmmss} %level{length=3} %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="1 MB" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="ERROR">
+			<AppenderRef ref="Console" />
+		</Root>
+		<Logger name="org.springframework" level="ERROR" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="weixin_c" level="INFO" additivity="false">
+			<AppenderRef ref="weixin_c" />
+		</Logger>
+		<Logger name="weixin_s" level="INFO" additivity="false">
+			<AppenderRef ref="weixin_s" />
+		</Logger>
+	</Loggers>
+</Configuration>

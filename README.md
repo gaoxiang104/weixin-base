@@ -1,0 +1,2 @@
+# 微信基础服务包
+包含获取access_token和jssdk基础配置
