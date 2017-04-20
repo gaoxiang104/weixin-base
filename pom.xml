@@ -29,7 +29,7 @@
 		            <!-- 注意此处的url -->
 		            <url>http://localhost:8080/manager/text</url>
 		            <server>myTomcat</server> <!-- 此处的名字必须和setting.xml中配置的ID一致-->
-		            <path>/${project.artifactId}</path>
+		            <path>/${project.artifactId}##${project.version}</path>
 	            </configuration>
 			</plugin>
 		</plugins>
