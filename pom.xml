@@ -3,10 +3,38 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.xgo.weixin-base</groupId>
 	<artifactId>weixin-base</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>weixin-base</name>
 	<description>微信基础配置</description>
+	
+	<build>
+		<plugins>
+			<!-- 设置JDK版本 -->
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.6.1</version>
+		        <configuration>
+	            	<source>1.8</source>
+	            	<target>1.8</target>
+		        </configuration>
+	      	</plugin>
+	      	<!-- maven自动部署tomcat -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+	            <artifactId>tomcat7-maven-plugin</artifactId>
+	            <version>2.2</version>
+	            <configuration>
+		            <!-- 注意此处的url -->
+		            <url>http://localhost:8080/manager/text</url>
+		            <server>myTomcat</server> <!-- 此处的名字必须和setting.xml中配置的ID一致-->
+		            <path>/${project.artifactId}</path>
+	            </configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
 	<properties>
 		<!-- spring 版本 -->
 		<spring.version>4.3.1.RELEASE</spring.version>
