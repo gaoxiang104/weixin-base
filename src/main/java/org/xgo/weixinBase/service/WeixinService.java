@@ -15,6 +15,7 @@ import org.xgo.weixinBase.model.AccessTokenResponse;
 import org.xgo.weixinBase.model.JsapiConfig;
 import org.xgo.weixinBase.model.JsapiTicketResponse;
 import org.xgo.weixinBase.model.WeixinConfig;
+import org.xgo.weixinBase.model.WeixinConfigStatic;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -77,11 +78,11 @@ public class WeixinService {
 		accessTokenTimestamp = System.currentTimeMillis(); // 设置accessToken生成时间
 		log.getLogger("weixin_s").info("WeixinService.getNewAccessToken.timeStanmp : " + accessTokenTimestamp);
 		StringBuffer url = new StringBuffer(); // 请求URL+parm
-		url.append(WeixinConfig.INSTANCE.get("GZ_URL_GET_ACCESS_TOKEN"));
+		url.append(WeixinConfig.INSTANCE.get(WeixinConfigStatic.GZ_URL_GET_ACCESS_TOKEN));
 		url.append("?grant_type=client_credential&appid=");
-		url.append(WeixinConfig.INSTANCE.get("GZ_APPID")); // appid
+		url.append(WeixinConfig.INSTANCE.get(WeixinConfigStatic.GZ_APPID)); // appid
 		url.append("&secret=");
-		url.append(WeixinConfig.INSTANCE.get("GZ_APPSECRET")); // appid
+		url.append(WeixinConfig.INSTANCE.get(WeixinConfigStatic.GZ_APPSECRET)); // appid
 
 		HttpGet httpGet = new HttpGet(url.toString());
 		httpGet.addHeader("Content-Type", "application/json; encoding=utf-8");
@@ -115,7 +116,7 @@ public class WeixinService {
 	 */
 	private void refreshJsapiTicket() throws Exception {
 		StringBuffer url = new StringBuffer(); // 请求URL+parm
-		url.append(WeixinConfig.INSTANCE.get("GZ_URL_GET_JSAPI_TICKET"));
+		url.append(WeixinConfig.INSTANCE.get(WeixinConfigStatic.GZ_URL_GET_JSAPI_TICKET));
 		url.append("?access_token=");
 		url.append(accessToken.getAccessToken()); // access token
 		url.append("&type=jsapi");

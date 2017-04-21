@@ -8,12 +8,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.xgo.base.Controller_;
 import org.xgo.weixinBase.service.WeixinService;
 
 @RestController
-@RequestMapping(value = "/", consumes = "application/json", produces = "application/json")
+@RequestMapping(value = "/")
 public class WeixinController extends Controller_ {
 
 	@Autowired
@@ -25,7 +26,7 @@ public class WeixinController extends Controller_ {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/getAccessToken.ctrl")
+	@RequestMapping(value = "/getAccessToken.ctrl", method=RequestMethod.GET)
 	public Map<String, Object> getAccessToken(HttpServletRequest request) {
 		String error = null;
 		Object object = null;
@@ -57,7 +58,7 @@ public class WeixinController extends Controller_ {
 	 *            页面地址
 	 * @return
 	 */
-	@RequestMapping(value = "/getJsapiConfig.ctrl")
+	@RequestMapping(value = "/getJsapiConfig.ctrl", method=RequestMethod.GET)
 	public Map<String, Object> getJsapiConfig(@RequestBody Map<String, String> param) {
 		String error = null;
 		Object object = null;
